@@ -1,0 +1,13 @@
+node_modules/
+yarn.lock
+package-lock.json
+bin/
+db.json
+dist/
+Dockerfile.MongoDB
+.env
+logs/
+vim-debug.log
+vim-error.log
+search.mongodb
+.idea

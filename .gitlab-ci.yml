@@ -1,0 +1,23 @@
+testnet-develop:
+  stage: deploy
+  script:
+    - git pull origin development
+    - cp /home/ubuntu/vimenv/tessera/vim-interface-server/vim-interface-server.testnet.env .env
+    - docker-compose up -d --build
+    - "yes | docker system prune || :"
+  only:
+    - development
+  tags:
+    - ec2-testnet-vim-server-dev
+mainnet_blue:
+  stage: deploy
+  script:
+    - git pull origin release_1.4
+    - cp /home/ubuntu/vimenv/maxwell/vim-interface-server/vim-interface-server.mainnet.env .env
+    - docker-compose up -d --build
+    - "yes | docker system prune || :"
+  only:
+    - release_1.4
+  tags:
+    - vim-api-server-blue
+
